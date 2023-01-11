@@ -1,0 +1,24 @@
+<ion-menu side="end" menu-id="primerMenu" contentId="principal">
+  <ion-header>
+    <ion-toolbar color="danger">
+      <ion-title>Info App</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-menu-toggle *ngFor="let c of componentes">
+        <ion-item [routerLink]="c.ruta" detail="true">
+          <ion-icon slot="start" [name]="c.icono"></ion-icon>
+          <ion-label>
+            {{ c.nombre }}
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+
+  </ion-content>
+  <ion-item>
+    <ion-note slot="start" class="ion-padding">Pablo Gallego Peñas </ion-note>
+    <ion-note slot="end" class="ion-padding">2022/23</ion-note>
+  </ion-item>
+</ion-menu>

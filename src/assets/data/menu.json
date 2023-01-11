@@ -1,0 +1,17 @@
+[
+  {
+    "nombre": "Info Serie",
+    "ruta": "/info-serie",
+    "icono": "star-outline"
+  },
+  {
+    "nombre": "Series",
+    "ruta": "/",
+    "icono": "home"
+  },
+  {
+    "nombre": "Categorias",
+    "ruta": "/categorias",
+    "icono": "grid-outline"
+  }
+]
