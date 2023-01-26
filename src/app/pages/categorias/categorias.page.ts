@@ -1,5 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {IonList} from "@ionic/angular";
+import {Component, OnInit} from '@angular/core';
 import {Serie} from "../../common/interfaces";
 import {DataService} from "../../services/data.service";
 
@@ -10,10 +9,18 @@ import {DataService} from "../../services/data.service";
 })
 export class CategoriasPage implements OnInit {
 
+  options = {
+    slidesPerView: 4.5,
+    slidesOffsetBefore: 0,
+    separator: 10
+  };
+
   series: Serie[] = [];
+  genres: string[] = [];
   constructor(private  dataService: DataService) { }
 
   ngOnInit() {
+    this.cargarCategorias();
     this.cargarSeries();
   }
 
@@ -21,5 +28,11 @@ export class CategoriasPage implements OnInit {
     this.dataService.getSeriesList().subscribe(
       (data: any) => {this.series = data;}
     );
+  }
+
+  private cargarCategorias() {
+    this.dataService.getGenresList().subscribe(
+      (data:any) => this.genres = data
+    )
   }
 }

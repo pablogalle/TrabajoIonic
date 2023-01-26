@@ -1,5 +1,11 @@
 <app-header titulo="Categorias"></app-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+
+  <swiper class="ion-padding" [config]="options">
+    <ng-template swiperSlide *ngFor = "let genre of genres">
+        <ion-text class="ion-text-center">{{genre}}</ion-text>
+    </ng-template>
+  </swiper>
 
 </ion-content>

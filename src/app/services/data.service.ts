@@ -20,4 +20,8 @@ export class DataService {
   getSerieById(id: string){
     return this.http.get<Serie>(environment.baseUrl+'/serie/'+id)
   }
+
+  getGenresList() {
+    return this.http.get<string[]>(environment.baseUrl+'/genres')
+  }
 }

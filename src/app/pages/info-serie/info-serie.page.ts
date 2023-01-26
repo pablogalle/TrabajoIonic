@@ -10,17 +10,29 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class InfoSeriePage implements OnInit {
 
-  serie: any;
+  series: Serie[] = [];
+
   constructor( private dataService: DataService,
                private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.getMySerie()
+    }
+
+    //TODO: Que funcione :)
+
+  getMySerie(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    if (id != null){
+    console.log('Id recibida: '+id);
+    if (id!= null){
       this.dataService.getSerieById(id).subscribe(
-        (data: any) => {this.serie = data as Serie;}
-      )
-      console.log(this.serie.id);
+        data => {
+          this.series[0] = data ;
+          console.log('Serie recibida: '+data.title);
+        });
+
+      //onsole.log('Serie : '+this.series[0].title);
+
     }
 
   }
