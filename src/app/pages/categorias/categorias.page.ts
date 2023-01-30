@@ -11,6 +11,7 @@ export class CategoriasPage implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+
   }
 
 

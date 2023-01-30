@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Genre, Serie} from "../../common/interfaces";
 import {DataService} from "../../services/data.service";
 
+
 @Component({
   selector: 'app-genres-swiper',
   templateUrl: './genres-swiper.component.html',

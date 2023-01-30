@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {from, Observable} from "rxjs";
 import {Genre, Serie} from "../common/interfaces";
 import {environment} from "../../environments/environment";
 
@@ -23,8 +23,8 @@ export class DataService {
   setGenre(genre: string) {
     this.selectedGenre = genre;
   }
-  getGenre(){
-    return this.selectedGenre;
+  getGenre(): Observable<any>{
+    return from(this.selectedGenre);
   }
   getSerieById(id: string){
     return this.http.get<Serie>(environment.baseUrl+'/serie/'+id)

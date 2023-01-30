@@ -19,14 +19,17 @@ export class SeriesComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.cargarSeries();
-
+    this.dataService.getGenre().subscribe(
+      data => {this.genre = data}
+    )
   }
   ngOnChanges(changes: SimpleChanges): void {
+
+    console.log(changes);
     this.cargarSeries();
   }
 
   private cargarSeries() {
-
     if (this.genre == ""){
       this.dataService.getSeriesList().subscribe(
         data => {this.series = data;}
