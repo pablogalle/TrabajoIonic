@@ -1,0 +1,10 @@
+<swiper class="ion-padding" [config]="options">
+  <ng-template swiperSlide *ngFor = "let genre of genres" >
+    <ion-avatar class="ion-text-center" (click)="setGenreService(genre.name)">
+      <ion-img src="{{genre.image}}"></ion-img>
+    </ion-avatar>
+    <ion-label class="ion-text-center">{{genre.name}}</ion-label>
+  </ng-template>
+</swiper>
+
+

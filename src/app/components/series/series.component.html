@@ -1,0 +1,26 @@
+<ion-list-header color="danger">
+  <ion-label>Series</ion-label>
+</ion-list-header>
+<ion-list>
+  <!-- Crear Cards para las series -->
+  <ion-card color="light" *ngFor="let serie of series" button (click)="gotoInfoPagina(serie._id)">
+    <ion-card-header>
+      <ion-card-title>{{serie.title}}</ion-card-title>
+      <ion-card-subtitle>
+        <ion-label *ngFor="let categoria of serie.genres">{{categoria.name}} </ion-label>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-img src="{{serie.images[0]}}"></ion-img>
+    </ion-card-content>
+  </ion-card>
+</ion-list>
+
+<ion-infinite-scroll threshold="150px"
+                     (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll-content
+    loadingSpinner="crescent"
+    loadingText="Cargando 3 más...">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
