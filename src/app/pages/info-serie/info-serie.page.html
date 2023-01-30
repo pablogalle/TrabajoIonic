@@ -1,8 +1,28 @@
 <app-header titulo="Info Serie"></app-header>
 
 <ion-content>
-<ion-card>
-  <ion-card-title></ion-card-title>
+<ion-card class="ion-margin">
+  <ion-card-header>
+    <ion-card-title class="ion-padding ion-text-center">{{serie.title}}</ion-card-title>
+    <ion-card-subtitle class="ion-text-center" >
+      <ion-label  *ngFor="let genre of serie.genres">{{genre.name}}  </ion-label>
+    </ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <swiper [config]="options">
+      <ng-template swiperSlide *ngFor = "let image of serie.images">
+        <ion-img class="serieImg" src="{{image}}"></ion-img>
+      </ng-template>
+    </swiper>
+
+    <ion-text class="ion-margin-bottom"><strong>Year of emission:</strong> {{serie.year_of_emision}} <br></ion-text>
+    <ion-text class="ion-margin-bottom"><strong>Number of episodes:</strong> {{serie.num_episodes}}<br></ion-text>
+    <ion-text class="ion-text-justify ion-margin-bottom"><strong>Synopsis:</strong><br> {{serie.synopsis}} <br></ion-text>
+
+  </ion-card-content>
+
+
 
 </ion-card>
 </ion-content>

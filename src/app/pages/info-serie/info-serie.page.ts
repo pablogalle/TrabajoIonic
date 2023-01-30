@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Serie} from "../../common/interfaces";
+import {Genre, Score, Serie} from "../../common/interfaces";
 import {DataService} from "../../services/data.service";
 import {ActivatedRoute} from "@angular/router";
 
@@ -10,7 +10,22 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class InfoSeriePage implements OnInit {
 
-  series: Serie[] = [];
+  serie: Serie = new class implements Serie {
+    _id = "";
+    genres = [];
+    images = "";
+    num_episodes = 0;
+    scores = [];
+    synopsis = "";
+    title = "";
+    year_of_emision = 1;
+  }
+
+  options = {
+    slidesPerView: 1,
+    slidesOffsetBefore: 0,
+    separator: 10
+  };
 
   constructor( private dataService: DataService,
                private activatedRoute: ActivatedRoute) { }
@@ -19,19 +34,15 @@ export class InfoSeriePage implements OnInit {
     this.getMySerie()
     }
 
-    //TODO: Que funcione :)
-
   getMySerie(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     console.log('Id recibida: '+id);
     if (id!= null){
       this.dataService.getSerieById(id).subscribe(
         data => {
-          this.series[0] = data ;
-          console.log('Serie recibida: '+data.title);
+          this.serie = data ;
+          console.log('Serie recibida: '+this.serie.title);
         });
-
-      //onsole.log('Serie : '+this.series[0].title);
 
     }
 

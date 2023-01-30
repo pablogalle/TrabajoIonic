@@ -8,6 +8,7 @@ import { InfoSeriePageRoutingModule } from './info-serie-routing.module';
 
 import { InfoSeriePage } from './info-serie.page';
 import {ComponentsModule} from "../../components/components.module";
+import {SwiperModule} from "swiper/angular";
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import {ComponentsModule} from "../../components/components.module";
         FormsModule,
         IonicModule,
         InfoSeriePageRoutingModule,
-        ComponentsModule
+        ComponentsModule,
+        SwiperModule
     ],
   declarations: [InfoSeriePage]
 })
